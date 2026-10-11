@@ -1,0 +1,26 @@
+/* Variáveis de cor e estilos globais. Estilos de um componente ficam
+   no arquivo NomeDoComponente.module.css, ao lado dele. */
+:root {
+  --cor-texto: #1f2328;
+  --cor-texto-suave: #59636e;
+  --cor-fundo: #f6f8fa;
+  --cor-superficie: #ffffff;
+  --cor-borda: #d1d9e0;
+  --cor-destaque: #0969da;
+  --cor-situacao-baixa: #1a7f37;
+  --cor-situacao-moderada: #9a6700;
+  --cor-situacao-alta: #cf222e;
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

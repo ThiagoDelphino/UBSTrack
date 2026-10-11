@@ -9,13 +9,24 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-from app.config import settings
-from app.database import Base
-from app import models # noqa: F401
+import os
 
+from database import Base
+import models  # noqa: F401  -> registra as tabelas na Base; sem ele o autogenerate não vê nada
 
-config.set_main_option("sqlalchemy.url", settings.database_url)
-                       
+# A URL do banco vem da variável de ambiente, nunca do alembic.ini
+# (o alembic.ini vai para o GitHub; a senha não pode ir junto).
+# Aqui é a URL do usuário ADMINISTRADOR, o único que cria tabelas.
+database_url = os.environ.get("DATABASE_URL")
+if not database_url:
+    raise RuntimeError(
+        "Defina a variável DATABASE_URL antes de rodar o Alembic. "
+        "Exemplo: postgresql+psycopg2://usuario:senha@localhost:5432/ubstrack"
+    )
+
+# O arquivo de configuração do Alembic trata "%" como caractere especial,
+# então uma senha com "%" precisa virar "%%".
+config.set_main_option("sqlalchemy.url", database_url.replace("%", "%%"))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

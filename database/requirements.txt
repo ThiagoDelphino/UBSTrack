@@ -1,7 +1,5 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-alembic
-psycopg2-binary
-pydantic-settings
-pytest
+# Dependências SÓ da pasta database/ (rodar migrations).
+# Versões fixas (==) para todos da equipe terem exatamente o mesmo ambiente.
+SQLAlchemy==2.1.4
+alembic==1.20.0
+psycopg2-binary==2.9.13

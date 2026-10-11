@@ -1,17 +1,15 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
+"""Base declarativa dos models.
 
-from app.config import settings
+Este arquivo existe só para o Alembic: ele define a classe Base,
+da qual todas as tabelas em models.py herdam.
 
-engine = create_engine(settings.database_url)
-SessionLocal = sessionmaker(bind=engine, autoflush=False)
+Conexão com o banco, sessão e get_db NÃO ficam aqui. Quem atende
+requisições são as APIs, então isso fica em core/database.py de
+cada uma (painel-api e simulador-api).
+"""
+
+from sqlalchemy.orm import DeclarativeBase
+
 
 class Base(DeclarativeBase):
     pass
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db 
-    finally:
-        db.close()
