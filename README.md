@@ -17,7 +17,7 @@ UBSTrack/
 └── docker-compose.yml
 ```
 
-Arquitetura, regras de negócio, padrão de branches, commits e PRs: [`docs/architecture/README.md`](docs/architecture/README.md).
+Arquitetura, regras de negócio, padrão de branches, commits e PRs: [`docs/architecture/guide-architecture-patterns-team.md`](docs/architecture/guide-architecture-patterns-team.md).
 
 ## Como rodar (Docker)
 
