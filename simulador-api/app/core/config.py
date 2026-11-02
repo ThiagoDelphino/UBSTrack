@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     # Endereços dos frontends que podem chamar esta API (separados por vírgula)
     cors_origins: str = "http://localhost:5174"
 
+    # Fuso usado para decidir quando "o dia" começa (o código da senha reinicia a cada dia)
+    timezone: str = "America/Sao_Paulo"
+
     @property
     def cors_origins_lista(self) -> list[str]:
         return [origem.strip() for origem in self.cors_origins.split(",") if origem.strip()]

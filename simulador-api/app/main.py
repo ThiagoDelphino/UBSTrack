@@ -8,7 +8,7 @@ app/domain/, não aqui.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health
+from app.api import health, unidades
 from app.core.config import settings
 
 app = FastAPI(
@@ -27,4 +27,5 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
-# Próximos passos: criar app/api/senhas.py e app/api/atendimentos.py e registrar aqui.
+app.include_router(unidades.router)
+# Próximo passo: app/api/atendimentos.py (chamar-proximo, finalizar e desistir).
