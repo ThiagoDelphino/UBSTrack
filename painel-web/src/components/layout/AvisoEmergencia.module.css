@@ -1,0 +1,12 @@
+.aviso {
+  padding: 12px 16px;
+  border: 1px solid var(--cor-situacao-alta);
+  border-radius: 8px;
+  background: var(--cor-superficie);
+  font-weight: 500;
+}
+
+.aviso a {
+  color: var(--cor-situacao-alta);
+  font-weight: 700;
+}

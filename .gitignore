@@ -1,4 +1,20 @@
+# Variáveis de ambiente (senhas). Só os .env.example vão para o GitHub.
 .env
+.env.*
+!.env.example
+
+# Python
 __pycache__/
 *.pyc
 .venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.idea/
