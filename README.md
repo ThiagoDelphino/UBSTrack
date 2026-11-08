@@ -13,7 +13,7 @@ UBSTrack/
 ├── simulador-api/   FastAPI que grava as senhas (simula o hospital) → http://localhost:8001
 ├── painel-web/      React do cidadão                              → http://localhost:5173
 ├── simulador-web/   React do operador                             → http://localhost:5174
-├── docs/            guia de arquitetura e padrões da equipe
+├── docs/            guia de arquitetura, padrões da equipe e como usar a simulador-api
 └── docker-compose.yml
 ```
 
@@ -45,6 +45,16 @@ A documentação interativa das APIs fica em http://localhost:8000/docs e http:/
 | `docker compose down -v` | Para tudo e **apaga o banco** (recomeça do zero) |
 | `docker compose logs -f painel-api` | Acompanha os logs de um serviço |
 | `docker compose exec painel-api pytest` | Roda os testes da painel-api |
+
+## Usando a API do simulador
+
+Com o projeto rodando, abra http://localhost:8001/docs para testar as rotas pelo navegador. Para ter dados de demonstração, carregue o seed:
+
+```bash
+docker compose exec -T db psql -U ubstrack -d ubstrack < database/seeds/seed_demo.sql
+```
+
+O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/simulador-api.md`](docs/simulador-api.md).
 
 ## Adicionando uma biblioteca
 
