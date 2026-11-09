@@ -3,12 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import unidades
 from app.core.config import settings
+from app.core.erros import registrar_handlers
 
 app = FastAPI(
     title="UBSTrack — painel-api",
     version="0.1.0",
     description="Leitura e cálculos do painel. Estimativas não garantem atendimento. Em emergência, ligue 192 (SAMU).",
 )
+
+registrar_handlers(app)
 
 app.add_middleware(
     CORSMiddleware,
