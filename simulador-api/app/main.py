@@ -8,7 +8,7 @@ app/domain/, não aqui.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import atendimento, health, unidades
+from app.api import atendimento, automatico, health, unidades
 from app.core.config import settings
 from app.core.erros import registrar_handlers
 
@@ -32,3 +32,4 @@ app.add_middleware(
 app.include_router(health.router)
 app.include_router(unidades.router)
 app.include_router(atendimento.router)
+app.include_router(automatico.router)
