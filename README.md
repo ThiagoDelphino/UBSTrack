@@ -54,7 +54,9 @@ Com o projeto rodando, abra http://localhost:8001/docs para testar as rotas pelo
 docker compose exec -T db psql -U ubstrack -d ubstrack < database/seeds/seed_demo.sql
 ```
 
-O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/simulador-api.md`](docs/simulador-api.md).
+O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/architecture/simulador-api.md`](docs/architecture/simulador-api.md).
+
+**Para quem faz o frontend:** endpoints, campos, exemplos reais e erros das duas APIs estão em [`docs/contrato-das-apis.md`](docs/contrato-das-apis.md).
 
 ## Adicionando uma biblioteca
 
