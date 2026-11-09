@@ -154,3 +154,19 @@ Esses testes não usam o banco, então rodar a suíte não altera seus dados.
 | Casos de uso | `simulador-api/app/services/atendimento_service.py` |
 | SQL (chamar, finalizar, desistir) | `simulador-api/app/repositories/atendimento.py` |
 | Rotas de unidades, fila e retirar senha | `simulador-api/app/api/unidades.py` |
+## Modo automático (UPX090)
+
+Simula movimento nas filas de **todas as unidades**, sem o operador clicar. Roda numa thread dentro da própria `simulador-api` e usa os mesmos casos de uso dos endpoints manuais.
+
+| Método | Rota | O que faz |
+|---|---|---|
+| GET | `/automatico` | Estado: `ativo`, `intervalo_s`, `rodadas`, `erros`, `acoes` (totais) |
+| POST | `/automatico/iniciar?intervalo_s=5` | Inicia (1 a 60 s entre rodadas). Se já ativo, não muda nada |
+| POST | `/automatico/parar` | Para. Se já parado, não muda nada |
+
+A cada rodada, por unidade (regras em `app/domain/automatico.py`): finaliza atendimentos que já duraram o suficiente, às vezes uma pessoa desiste, chama a próxima senha enquanto houver guichê livre (2 por unidade) e às vezes chega alguém (50%; para em 30 aguardando).
+
+Pontos de atenção:
+- Os atendimentos duram de 1 a 3 minutos (tempo comprimido para a demo). Como o painel calcula a média dos últimos 10 finalizados, o tempo médio mostrado tende a ~2 min enquanto o modo estiver ativo.
+- O estado vive na memória do processo: reiniciar a API para o modo automático. Com mais de um worker, haveria uma simulação por worker; use um só (padrão do `docker-compose`).
+- Erro numa unidade não derruba o modo: é contado em `erros` e registrado no log.
