@@ -22,10 +22,14 @@ simultâneos não passam pela mesma senha.
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-AGUARDANDO = "aguardando"
-EM_ATENDIMENTO = "em_atendimento"
-FINALIZADO = "finalizado"
-DESISTIU = "desistiu"
+from app.domain.transicoes import (
+    AGUARDANDO,
+    DESISTIU,
+    EM_ATENDIMENTO,
+    FINALIZADO,
+    TransicaoInvalida,
+    origem_de,
+)
 
 _COLUNAS = (
     "id_atendimento, id_ubs, id_servico, codigo_senha, status, "
@@ -39,17 +43,6 @@ class FilaVazia(Exception):
 
 class AtendimentoNaoEncontrado(Exception):
     """Não existe senha com esse id."""
-
-
-class TransicaoInvalida(Exception):
-    """O status atual da senha não permite a mudança pedida."""
-
-    def __init__(self, status_atual: str, status_exigido: str):
-        self.status_atual = status_atual
-        self.status_exigido = status_exigido
-        super().__init__(
-            f"A senha está '{status_atual}'; só é possível nesta ação se estiver '{status_exigido}'."
-        )
 
 
 def chamar_proximo(db: Session, id_ubs: int) -> dict:
@@ -94,7 +87,6 @@ def finalizar(db: Session, id_atendimento: int) -> dict:
     return _mudar_status(
         db,
         id_atendimento,
-        exigido=EM_ATENDIMENTO,
         novo=FINALIZADO,
         sql_extra="fim_atendimento = now()",
     )
@@ -111,7 +103,6 @@ def desistir(db: Session, id_atendimento: int) -> dict:
     return _mudar_status(
         db,
         id_atendimento,
-        exigido=AGUARDANDO,
         novo=DESISTIU,
         sql_extra="fim_atendimento = now()",
     )
@@ -122,10 +113,9 @@ def desistir(db: Session, id_atendimento: int) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def _mudar_status(
-    db: Session, id_atendimento: int, *, exigido: str, novo: str, sql_extra: str
-) -> dict:
+def _mudar_status(db: Session, id_atendimento: int, *, novo: str, sql_extra: str) -> dict:
     """UPDATE condicionado ao status atual; se não casar, descobre o motivo."""
+    exigido = origem_de(novo)  # regra de transição vive em app/domain/transicoes.py
     sql = text(
         f"""
         UPDATE atendimento
