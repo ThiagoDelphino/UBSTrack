@@ -62,7 +62,9 @@ docker compose exec -T db psql -U ubstrack -d ubstrack < database/seeds/seed_upa
 
 Os dois seeds podem ser rodados de novo a qualquer momento (apagam e recriam só as próprias unidades).
 
-O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/simulador-api.md`](docs/simulador-api.md).
+O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/architecture/simulador-api.md`](docs/architecture/simulador-api.md).
+
+**Para quem faz o frontend:** endpoints, campos, exemplos reais e erros das duas APIs estão em [`docs/contrato-das-apis.md`](docs/contrato-das-apis.md).
 
 ## Adicionando uma biblioteca
 
