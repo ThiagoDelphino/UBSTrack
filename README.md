@@ -54,6 +54,14 @@ Com o projeto rodando, abra http://localhost:8001/docs para testar as rotas pelo
 docker compose exec -T db psql -U ubstrack -d ubstrack < database/seeds/seed_demo.sql
 ```
 
+Para usar as **unidades reais de Sorocaba** (UPA Éden, UPHs Zona Oeste/Norte/Leste e PA Laranjeiras; fila simulada), carregue também:
+
+```bash
+docker compose exec -T db psql -U ubstrack -d ubstrack < database/seeds/seed_upas_sorocaba.sql
+```
+
+Os dois seeds podem ser rodados de novo a qualquer momento (apagam e recriam só as próprias unidades).
+
 O fluxo de uma senha é **retirar → chamar o próximo → finalizar** (ou **desistir**, se ainda estiver aguardando). Passo a passo com exemplos, regras e erros: [`docs/simulador-api.md`](docs/simulador-api.md).
 
 ## Adicionando uma biblioteca
