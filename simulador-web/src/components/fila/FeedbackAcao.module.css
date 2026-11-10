@@ -1,0 +1,52 @@
+.area {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  width: min(440px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .area {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+.mensagem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid;
+  border-radius: var(--raio-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: var(--sombra-alta);
+  pointer-events: auto;
+  animation: entrar 0.2s ease;
+}
+
+.mensagem svg {
+  flex: none;
+}
+
+.ok {
+  border-color: #bfe8d4;
+  background: var(--cor-situacao-baixa-fundo);
+  color: #0f5b38;
+}
+
+.erro {
+  border-color: #f4c9c5;
+  background: var(--cor-situacao-alta-fundo);
+  color: #8e2823;
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

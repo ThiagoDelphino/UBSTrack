@@ -1,0 +1,47 @@
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #eef2fa;
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a3aec2;
+}
+
+.conectada {
+  background: var(--cor-situacao-baixa-fundo);
+  color: var(--cor-situacao-baixa);
+}
+
+.conectada .ponto {
+  background: #1fa968;
+  box-shadow: 0 0 0 3px rgba(31, 169, 104, 0.2);
+}
+
+.indisponivel {
+  background: var(--cor-situacao-alta-fundo);
+  color: var(--cor-situacao-alta);
+}
+
+.indisponivel .ponto {
+  background: var(--cor-situacao-alta);
+}
+
+@media (max-width: 560px) {
+  .selo {
+    padding: 0 10px;
+    font-size: 0;
+    gap: 0;
+  }
+}

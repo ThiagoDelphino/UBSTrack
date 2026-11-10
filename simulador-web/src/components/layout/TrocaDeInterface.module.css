@@ -1,0 +1,32 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #2b3e60;
+  border-radius: var(--raio-md);
+  background: var(--cor-menu-2);
+  color: var(--cor-menu-texto);
+  text-decoration: none;
+}
+
+.link:hover {
+  border-color: #4a6aa6;
+  color: #fff;
+}
+
+.texto {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+}
+
+.texto strong {
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.texto span {
+  font-size: 0.75rem;
+  color: var(--cor-menu-mudo);
+}

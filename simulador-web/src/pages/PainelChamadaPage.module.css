@@ -1,0 +1,149 @@
+.tela {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 2.2vh;
+  height: 100vh;
+  overflow: hidden;
+  padding: 24px 36px 20px;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(59, 108, 245, 0.18), transparent 60%),
+    #0b1426;
+  color: #fff;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.marca strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.marca span {
+  display: block;
+  margin-top: 3px;
+  color: #7f8fab;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.unidade select {
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 800;
+}
+
+.unidade option {
+  color: #182230;
+}
+
+.direita {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.relogio {
+  margin-right: 8px;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #dbe5fb;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  gap: 22px;
+  min-height: 0;
+}
+
+.lateral {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  min-height: 0;
+  align-content: start;
+}
+
+.rodape {
+  color: #6f7f9b;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.erro {
+  color: #ffb3ad;
+  font-weight: 700;
+}
+
+.mensagem {
+  display: grid;
+  grid-row: 1 / -1;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 900px) {
+  .tela {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 18px 16px 16px;
+  }
+
+  .grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .botao span {
+    display: none;
+  }
+}

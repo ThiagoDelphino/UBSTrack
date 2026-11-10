@@ -1,0 +1,65 @@
+.painel {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  min-height: 0;
+  padding: 32px;
+  border: 1px solid rgba(125, 160, 255, 0.3);
+  border-radius: 28px;
+  background:
+    radial-gradient(900px 420px at 50% 0%, rgba(59, 108, 245, 0.45), transparent 70%),
+    linear-gradient(160deg, #15295a, #0f1f45);
+  text-align: center;
+}
+
+.espera {
+  background: linear-gradient(160deg, #14213d, #0f1a32);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.rotulo {
+  color: #9db6ff;
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.codigo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(4.5rem, min(16vw, 30vh), 14rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(125, 160, 255, 0.55);
+  animation: chamar 1.2s ease-out;
+}
+
+.detalhe {
+  color: #c4d2f5;
+  font-size: clamp(0.95rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+}
+
+.aviso {
+  color: #8da0c8;
+  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+}
+
+@keyframes chamar {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    text-shadow: 0 0 0 rgba(125, 160, 255, 0);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.08);
+    text-shadow: 0 0 110px rgba(125, 160, 255, 0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
