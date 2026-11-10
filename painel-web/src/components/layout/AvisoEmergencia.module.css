@@ -1,12 +1,24 @@
 .aviso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
   padding: 12px 16px;
-  border: 1px solid var(--cor-situacao-alta);
-  border-radius: 8px;
-  background: var(--cor-superficie);
-  font-weight: 500;
+  border: 1px solid #f4c9c5;
+  border-left: 4px solid var(--cor-emergencia);
+  border-radius: var(--raio-md);
+  background: var(--cor-emergencia-fundo);
+  color: #6e1f1b;
+  font-size: 0.9375rem;
+}
+
+.aviso svg {
+  flex: none;
+  color: var(--cor-emergencia);
 }
 
 .aviso a {
-  color: var(--cor-situacao-alta);
-  font-weight: 700;
+  color: var(--cor-emergencia);
+  font-weight: 800;
+  white-space: nowrap;
 }

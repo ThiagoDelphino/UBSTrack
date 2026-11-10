@@ -16,11 +16,26 @@ export class ApiError extends Error {
   }
 }
 
+/** A API explica o erro no campo `detail`. Se não vier, usamos uma mensagem genérica. */
+async function mensagemDoErro(resposta: Response): Promise<string> {
+  try {
+    const corpo: unknown = await resposta.json()
+    if (typeof corpo === 'object' && corpo !== null && 'detail' in corpo) {
+      const { detail } = corpo as { detail: unknown }
+      if (typeof detail === 'string') return detail
+    }
+  } catch {
+    // corpo vazio ou que não é JSON: cai na mensagem genérica
+  }
+  return `A API respondeu com erro ${resposta.status}.`
+}
+
 async function requisitar<T>(caminho: string, opcoes?: RequestInit): Promise<T> {
   let resposta: Response
   try {
     resposta = await fetch(`${BASE_URL}${caminho}`, {
-      headers: { 'Content-Type': 'application/json' },
+      // Só declara JSON quando há corpo: um GET "simples" não dispara a checagem prévia do CORS.
+      headers: opcoes?.body ? { 'Content-Type': 'application/json' } : undefined,
       ...opcoes,
     })
   } catch {
@@ -29,13 +44,13 @@ async function requisitar<T>(caminho: string, opcoes?: RequestInit): Promise<T> 
   }
 
   if (!resposta.ok) {
-    throw new ApiError(resposta.status, `A API respondeu com erro ${resposta.status}.`)
+    throw new ApiError(resposta.status, await mensagemDoErro(resposta))
   }
   return (await resposta.json()) as T
 }
 
-export function apiGet<T>(caminho: string): Promise<T> {
-  return requisitar<T>(caminho)
+export function apiGet<T>(caminho: string, sinal?: AbortSignal): Promise<T> {
+  return requisitar<T>(caminho, { signal: sinal })
 }
 
 export function apiPost<T>(caminho: string, corpo?: unknown): Promise<T> {

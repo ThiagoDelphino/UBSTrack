@@ -1,0 +1,51 @@
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border: 1px solid;
+  border-radius: var(--raio-md);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.barra > svg {
+  flex: none;
+}
+
+.barra p {
+  flex: 1;
+}
+
+.barra button {
+  flex: none;
+}
+
+.neutra {
+  border-color: #cddafc;
+  background: var(--cor-destaque-suave);
+  color: #1d3a8a;
+}
+
+.ativa {
+  border-color: #bfe8d4;
+  background: var(--cor-situacao-baixa-fundo);
+  color: #0f5b38;
+}
+
+.aviso {
+  border-color: var(--cor-aviso-borda);
+  background: var(--cor-aviso-fundo);
+  color: var(--cor-aviso);
+}
+
+@media (max-width: 640px) {
+  .barra {
+    flex-wrap: wrap;
+  }
+
+  .barra p {
+    flex-basis: calc(100% - 40px);
+  }
+}
