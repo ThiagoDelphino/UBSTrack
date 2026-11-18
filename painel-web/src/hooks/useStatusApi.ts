@@ -3,18 +3,29 @@ import { buscarStatusApi } from '../services/healthService'
 
 export type EstadoConexao = 'carregando' | 'conectada' | 'indisponivel'
 
-/** Verifica se a API está no ar. Exemplo do padrão página -> hook -> service. */
+const INTERVALO_MS = 30_000
+
+/** Verifica se a API está no ar (e confere de novo a cada 30 s). */
 export function useStatusApi(): EstadoConexao {
   const [estado, setEstado] = useState<EstadoConexao>('carregando')
 
   useEffect(() => {
     let ativo = true
-    buscarStatusApi()
-      .then(() => ativo && setEstado('conectada'))
-      .catch(() => ativo && setEstado('indisponivel'))
+    const controle = new AbortController()
+
+    function verificar() {
+      buscarStatusApi(controle.signal)
+        .then(() => ativo && setEstado('conectada'))
+        .catch(() => ativo && setEstado('indisponivel'))
+    }
+
+    verificar()
+    const id = window.setInterval(verificar, INTERVALO_MS)
     // Evita atualizar o estado se o componente já saiu da tela.
     return () => {
       ativo = false
+      controle.abort()
+      window.clearInterval(id)
     }
   }, [])
 

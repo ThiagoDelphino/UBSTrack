@@ -1,0 +1,36 @@
+.controles {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 20px 22px 22px;
+}
+
+.controles h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.controles p {
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+.botoes {
+  display: grid;
+  margin-top: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.dica {
+  margin-top: 6px;
+  color: var(--cor-texto-mudo);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 480px) {
+  .botoes {
+    grid-template-columns: 1fr;
+  }
+}

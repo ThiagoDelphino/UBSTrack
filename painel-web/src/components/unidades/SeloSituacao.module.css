@@ -1,0 +1,33 @@
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ponto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.baixa {
+  background: var(--cor-situacao-baixa-fundo);
+  color: var(--cor-situacao-baixa);
+}
+
+.moderada {
+  background: var(--cor-situacao-moderada-fundo);
+  color: var(--cor-situacao-moderada);
+}
+
+.alta {
+  background: var(--cor-situacao-alta-fundo);
+  color: var(--cor-situacao-alta);
+}

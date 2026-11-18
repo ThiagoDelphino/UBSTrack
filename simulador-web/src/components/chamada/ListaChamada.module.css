@@ -1,0 +1,76 @@
+.bloco {
+  min-height: 0;
+  padding: 2vh 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bloco h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #aebbd0;
+  font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contagem {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.bloco ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bloco li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bloco li:first-child {
+  border-top: 0;
+}
+
+.codigo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.3rem, 4.4vh, 2.4rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.verde {
+  color: #5be3bd;
+}
+
+.azul {
+  color: #fff;
+}
+
+.tempo {
+  color: #8da0c8;
+  font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+}
+
+.vazio {
+  padding: 8px 0;
+  color: #7f8fab;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+}
