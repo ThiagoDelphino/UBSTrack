@@ -8,8 +8,9 @@ app/domain/, não aqui.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health
+from app.api import atendimento, automatico, health, unidades
 from app.core.config import settings
+from app.core.erros import registrar_handlers
 
 app = FastAPI(
     title="UBSTrack — API do simulador",
@@ -19,6 +20,8 @@ app = FastAPI(
 
 # O navegador bloqueia chamadas de um endereço (o front, porta 5174)
 # para outro (a API, porta 8001) se a API não autorizar. Isso é o CORS.
+registrar_handlers(app)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_lista,
@@ -27,4 +30,6 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
-# Próximos passos: criar app/api/senhas.py e app/api/atendimentos.py e registrar aqui.
+app.include_router(unidades.router)
+app.include_router(atendimento.router)
+app.include_router(automatico.router)

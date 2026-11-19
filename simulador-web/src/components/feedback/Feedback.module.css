@@ -1,0 +1,84 @@
+.caixa {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 44px 24px;
+  text-align: center;
+}
+
+.caixa h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.caixa p {
+  max-width: 420px;
+  color: var(--cor-texto-suave);
+  font-size: 0.9375rem;
+}
+
+.caixa .icone + h2 {
+  margin-top: 4px;
+}
+
+.caixa button {
+  margin-top: 8px;
+}
+
+.icone {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--cor-destaque-suave);
+  color: var(--cor-destaque);
+}
+
+.iconeErro {
+  background: var(--cor-situacao-alta-fundo);
+  color: var(--cor-situacao-alta);
+}
+
+.desatualizado {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--cor-aviso-borda);
+  border-radius: var(--raio-sm);
+  background: var(--cor-aviso-fundo);
+  color: var(--cor-aviso);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.desatualizado svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.esqueletos {
+  display: grid;
+  gap: 12px;
+}
+
+.esqueletoCartao {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+}
+
+.esqueletoCorpo {
+  display: grid;
+  flex: 1;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .esqueletoCartao > :last-child {
+    display: none;
+  }
+}

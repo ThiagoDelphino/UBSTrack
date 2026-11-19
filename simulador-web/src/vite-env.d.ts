@@ -4,6 +4,8 @@
 // escrever import.meta.env.VITE_API_UR (com erro de digitação).
 interface ImportMetaEnv {
   readonly VITE_API_URL: string
+  /** Endereço do painel do cidadão (link "Abrir painel" no menu). Opcional. */
+  readonly VITE_PAINEL_URL?: string
 }
 
 interface ImportMeta {

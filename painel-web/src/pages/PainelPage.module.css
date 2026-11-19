@@ -1,0 +1,44 @@
+.introducao {
+  margin-bottom: 20px;
+}
+
+.introducao h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.introducao p {
+  max-width: 680px;
+  margin-top: 6px;
+  color: var(--cor-texto-suave);
+}
+
+.erroAtualizacao {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--cor-aviso-borda);
+  border-radius: var(--raio-md);
+  background: var(--cor-aviso-fundo);
+  color: var(--cor-aviso);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.erroAtualizacao button {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--cor-aviso);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+  .introducao h2 {
+    font-size: 1.3rem;
+  }
+}

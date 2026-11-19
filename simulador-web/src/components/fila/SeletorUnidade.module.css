@@ -1,0 +1,65 @@
+.seletor {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+}
+
+.icone {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--cor-destaque-suave);
+  color: var(--cor-destaque);
+}
+
+.campo {
+  flex: 1;
+  min-width: 0;
+}
+
+.selectEnvolve {
+  margin-top: 6px;
+}
+
+.selectEnvolve select {
+  width: 100%;
+  max-width: 460px;
+  min-height: 44px;
+  padding: 0 40px 0 14px;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: var(--raio-sm);
+  background: var(--cor-superficie)
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23556175' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>")
+    no-repeat right 14px center;
+  appearance: none;
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.selectEnvolve select:focus-visible {
+  border-color: var(--cor-destaque);
+}
+
+.endereco {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 560px) {
+  .seletor {
+    padding: 16px;
+  }
+
+  .icone {
+    display: none;
+  }
+}

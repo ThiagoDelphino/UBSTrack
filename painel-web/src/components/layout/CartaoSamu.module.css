@@ -1,0 +1,46 @@
+.cartao {
+  padding: 16px;
+  border: 1px solid #3b2a3b;
+  border-radius: var(--raio-md);
+  background: linear-gradient(160deg, #3a1f2d, #2a1a2e);
+}
+
+.icone {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(255, 120, 110, 0.18);
+  color: #ff9a92;
+}
+
+.cartao strong {
+  display: block;
+  font-size: 0.9375rem;
+}
+
+.cartao p {
+  margin: 4px 0 12px;
+  color: #d3bfc6;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.ligar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border-radius: var(--raio-sm);
+  background: #c9372f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.ligar:hover {
+  background: #b02e27;
+}

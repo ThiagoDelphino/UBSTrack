@@ -1,0 +1,195 @@
+.cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 22px 24px;
+}
+
+.selos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 10px;
+}
+
+.cabecalho h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.endereco {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--cor-texto-suave);
+}
+
+.fechada {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #e8ebf2;
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.atualizado {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--cor-texto-mudo);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.numero {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 18px 20px;
+}
+
+.numero span {
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.numero strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.numero small {
+  color: var(--cor-texto-mudo);
+  font-size: 0.75rem;
+}
+
+.numeroDestaque {
+  border-color: #c3d2fb;
+  background: linear-gradient(160deg, #f3f7ff, #eaf0ff);
+}
+
+.numeroDestaque strong {
+  color: var(--cor-destaque-escuro);
+  font-size: 1.75rem;
+}
+
+.composicao {
+  padding: 20px 24px 22px;
+}
+
+.composicao h3 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.barra {
+  display: flex;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9eef6;
+}
+
+.trechoDeslocamento {
+  background: #7da0ff;
+}
+
+.trechoEspera {
+  background: var(--cor-acento);
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legenda strong {
+  color: var(--cor-texto);
+}
+
+.corDeslocamento,
+.corEspera {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.corDeslocamento {
+  background: #7da0ff;
+}
+
+.corEspera {
+  background: var(--cor-acento);
+}
+
+.rodape {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+.rodape svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+@media (max-width: 960px) {
+  .numeros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .numeroDestaque {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecalho {
+    padding: 18px;
+  }
+
+  .cabecalho > a {
+    width: 100%;
+  }
+
+  .cabecalho h2 {
+    font-size: 1.3rem;
+  }
+}
