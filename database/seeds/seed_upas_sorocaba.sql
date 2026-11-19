@@ -20,11 +20,11 @@ CREATE TEMP TABLE upa (
 ) ON COMMIT DROP;
 
 INSERT INTO upa VALUES
- ('UPA Éden',                 'R. Miguel José Gimenez, 75 - Vila Gimenes, Sorocaba - SP',     -23.429046258055156, -47.415466571164465, 12, 6, 2),
- ('UPH Zona Oeste',           'Av. Gen. Carneiro, 1670 - Cerrado, Sorocaba - SP',             -23.506710213857335, -47.48360501301564,  10, 3, 1),
- ('UPH Zona Norte',           'Av. Itavuvu, 19 - Vila Olímpia, Sorocaba - SP',                -23.483436336434774, -47.47204696318299,  14, 9, 3),
- ('UPH Zona Leste',           'R. Cel. Nogueira Padilha, 2585 - Vila Hortência, Sorocaba - SP', -23.513177226820844, -47.42993291318191, 8, 0, 2),
- ('PA Parque das Laranjeiras', 'R. Sônia Bernuncio, 24 - Parque das Laranjeiras, Sorocaba - SP', -23.45375358785477, -47.46918104756567, 10, 2, 4);
+ (U&'UPA \00C9den',                 U&'R. Miguel Jos\00E9 Gimenes, 75 - Jardim Portobello, Sorocaba - SP',     -23.429046258055156, -47.415466571164465, 12, 6, 2),
+ ('UPH Zona Oeste',           'Av. Gen. Carneiro, 1670 - Vila Lucy, Sorocaba - SP',             -23.506710213857335, -47.48360501301564,  10, 3, 1),
+ ('UPH Zona Norte',           U&'Av. Itavuvu, 19 - Vila Ol\00EDmpia, Sorocaba - SP',                -23.483436336434774, -47.47204696318299,  14, 9, 3),
+ ('UPH Zona Leste',           U&'R. Cel. Nogueira Padilha, 2585 - Vila Hort\00EAncia, Sorocaba - SP', -23.513177226820844, -47.42993291318191, 8, 0, 2),
+ ('PA Parque das Laranjeiras', U&'R. S\00F4nia Bernuncio, 24 - Parque das Laranjeiras, Sorocaba - SP', -23.45375358785477, -47.46918104756567, 10, 2, 4);
 
 -- 1) Limpa execuções anteriores (só estas unidades) ----------------------
 DELETE FROM atendimento WHERE id_ubs IN (SELECT id_ubs FROM ubs WHERE nome IN (SELECT nome FROM upa));
